@@ -7,8 +7,10 @@ function handleClick(){
     const emailClassName=document.querySelector('#email-form input').className;
     const passwordClassName=document.querySelector('#password-form input').className;
     const loginSection=document.getElementById('login-section');
+    const accountSection=document.getElementById('account-section');
     if(emailClassName=='form-control is-valid' && passwordClassName=='form-control is-valid'){
         loginSection.style.display='none';
+        accountSection.style.display='block';
     }
 }
 function handleInputs(event){
