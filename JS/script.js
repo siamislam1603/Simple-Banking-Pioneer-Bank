@@ -29,7 +29,6 @@ function handleInputs(event){
         document.querySelector(targetId+' .invalid-feedback').style.display='block';
     }
     else{
-        console.log('sdfkjsdkjfhksjdh');
         document.querySelector(targetId+' input').setAttribute('class','form-control is-valid');
         document.querySelector(targetId+' .invalid-feedback').style.display='none';
     }

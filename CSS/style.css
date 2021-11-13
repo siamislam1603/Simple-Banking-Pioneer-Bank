@@ -1,4 +1,4 @@
-#login-section>div>div{
+#login-section>div>div,.transaction-section{
     border-radius: 10px;
     box-shadow: 2px 4px 10px gray;
     padding: 20px;
@@ -11,4 +11,21 @@
 }
 #login-section div{
     flex-grow: 1;
+}
+#deposit{
+    background-color: purple;
+}
+#withdraw{
+    background-color: rgb(212, 109, 109);
+}
+#balance{
+    background-color: rgb(228, 154, 59);
+}
+#deposit,#balance,#withdraw{
+    color: white;
+    border-radius: 10px;
+    padding: 10px 0 10px 10px;
+}
+#account-section{
+    display: none;
 }

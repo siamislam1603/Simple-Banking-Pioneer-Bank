@@ -17,26 +17,85 @@
     <div class="container">
       <div id="login-section">
         <div>
-          <h1 class="text-center">
-            Welcome to Pioneer Bank
-          </h1>
+          <h1 class="text-center">Welcome to Pioneer Bank</h1>
           <div class="mt-5">
             <h3 class="mb-4">Login</h3>
             <div id="email-form" class="mb-4">
-              <input type="email" class="form-control" placeholder="Email" aria-describedby="validationEmailFeedback" required/>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                aria-describedby="validationEmailFeedback"
+                required
+              />
               <div id="validationEmailFeedback" class="invalid-feedback">
                 Please choose a valid email.
               </div>
             </div>
             <div id="password-form">
-              <input type="password" class="form-control" placeholder="password" aria-describedby="validationPassFeedback" required/>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="password"
+                aria-describedby="validationPassFeedback"
+                required
+              />
               <div id="validationPassFeedback" class="invalid-feedback">
                 Please enter a valid password of more than 7 in length.
               </div>
             </div>
-            <button
-              class="btn btn-success rounded-pill mt-4" id="submit-btn"
-            >Enter</button>
+            <button class="btn btn-success rounded-pill mt-4" id="submit-btn">
+              Enter
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="account-section">
+        <div class="row mb-4">
+          <div class="col-4">
+            <div id="deposit">
+              <h6>Deposit</h6>
+              <h4>$ 00</h4>
+            </div>
+          </div>
+          <div class="col-4">
+            <div id="withdraw">
+              <h6>Withdraw</h6>
+              <h4>$ 00</h4>
+            </div>
+          </div>
+          <div class="col-4">
+            <div id="balance">
+              <h6>Balance</h6>
+              <h4>$ 1240</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="transaction-section mb-4">
+              <h5>Deposit</h5>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="$ amount you want to deposit"
+              /><button class="btn btn-success mt-4 rounded-pill">
+                Deposit
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="transaction-section mb-4">
+              <h5>Withdraw</h5>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="$ amount you want to withdraw"
+              />
+              <button class="btn btn-success mt-4 rounded-pill">
+                Withdraw
+              </button>
+            </div>
           </div>
         </div>
       </div>
