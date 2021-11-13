@@ -14,28 +14,26 @@ function handleClick(){
     // }
 }
 function handleInputs(event){
-    var isValidInput=false;
-    if(event.target.type=='email'){
-        isValidInput=validateEmail(event.target.value);
-        var nonTargetId='validationPassFeedback';
-        var targetId='validationEmailFeedback';
+    var element=event.target;
+    if(element.type=='email'){
+        var isValid=validateEmail(element.value);
+        var targetId='#email-form';
     }
     else{
-        if(event.target.value.length>7)
-            isValidInput=true;
-        var nonTargetId='validationEmailFeedback';
-        var targetId='validationPassFeedback';
+        if(element.value.length>7)
+            var isValid=true;
+        else
+            var isValid=false;
+        var targetId='#password-form';
     }
-    var targetElement=document.getElementById(targetId);
-    var nonTargetElement=document.getElementById(nonTargetId);
-    if(!isValidInput){
-        event.target.setAttribute('class','form-control is-invalid');
-        targetElement.style.display='block';
-        nonTargetElement.style.display='none';
+    if(!isValid){
+        document.querySelector(targetId+' input').setAttribute('class','form-control is-invalid');
+        document.querySelector(targetId+' .invalid-feedback').style.display='block';
     }
     else{
-       event.target.setAttribute('class','form-control is-valid');
-       document.getElementById(targetId).style.display='none';
+        console.log('sdfkjsdkjfhksjdh');
+        document.querySelector(targetId+' input').setAttribute('class','form-control is-valid');
+        document.querySelector(targetId+' .invalid-feedback').style.display='none';
     }
 }
 loginBtn.onclick=handleClick;

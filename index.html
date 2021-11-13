@@ -21,15 +21,18 @@
             Welcome to Pioneer Bank
           </h1>
           <div class="mt-5">
-            <h3>Login</h3>
-            <input type="email" class="form-control" placeholder="Email" aria-describedby="validationEmailFeedback" required/>
-            <div id="validationEmailFeedback" class="invalid-feedback">
-              Please choose a valid email.
+            <h3 class="mb-4">Login</h3>
+            <div id="email-form" class="mb-4">
+              <input type="email" class="form-control" placeholder="Email" aria-describedby="validationEmailFeedback" required/>
+              <div id="validationEmailFeedback" class="invalid-feedback">
+                Please choose a valid email.
+              </div>
             </div>
-            <br>
-            <input type="password" class="form-control" placeholder="password" aria-describedby="validationPassFeedback" required/>
-            <div id="validationPassFeedback" class="invalid-feedback">
-              Please enter a valid password of more than 7 in length.
+            <div id="password-form">
+              <input type="password" class="form-control" placeholder="password" aria-describedby="validationPassFeedback" required/>
+              <div id="validationPassFeedback" class="invalid-feedback">
+                Please enter a valid password of more than 7 in length.
+              </div>
             </div>
             <button
               class="btn btn-success rounded-pill mt-4" id="submit-btn"
