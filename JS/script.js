@@ -4,14 +4,12 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 function handleClick(){
-    // const loginSection=document.getElementById('login-section');
-    // const isValidEmail=validateEmail(email);
-    // if(isValidEmail && password.length>7){
-    //     loginSection.style.display="none";
-    // }
-    // else{
-    //     forms[0].setAttribute('class','form-control is-invalid');
-    // }
+    const emailClassName=document.querySelector('#email-form input').className;
+    const passwordClassName=document.querySelector('#password-form input').className;
+    const loginSection=document.getElementById('login-section');
+    if(emailClassName=='form-control is-valid' && passwordClassName=='form-control is-valid'){
+        loginSection.style.display='none';
+    }
 }
 function handleInputs(event){
     var element=event.target;
