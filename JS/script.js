@@ -55,16 +55,27 @@ function handleTransactionInputs(event){
             element.setAttribute('class','form-control is-invalid');
     }
 }
-function handleDepositAmount(){
-    const element=document.querySelector('#deposit-transaction input');
+function handleTransactionsAmount(event){
+    const parentId=event.target.parentNode.id;
+    var element=document.querySelector('#'+parentId+' input');
     elementValue=+element.value;
     var balance=document.querySelector('#balance h4 span');
     const balanceValue=parseFloat(balance.innerHTML);
-    var deposit=document.querySelector('#deposit h4 span');
-    const depositValue=parseFloat(deposit.innerHTML);
+    var transactionType='';
+    if(event.target.id=='deposit-btn')
+        transactionType='#deposit';
+    else
+        transactionType='#withdraw';
+    var transaction=document.querySelector(transactionType+' h4 span');
+    const transactionValue=parseFloat(transaction.innerHTML);
     if(element.className=='form-control is-valid'){
-        deposit.innerHTML=depositValue+elementValue;
-        balance.innerHTML=balanceValue+elementValue;
+        transaction.innerHTML=transactionValue+elementValue;
+        if(transactionType=='#deposit')
+            balance.innerHTML=balanceValue+elementValue;
+        else
+            balance.innerHTML=balanceValue-elementValue;
+        element.value="";
+        element.setAttribute('class','form-control');
     }
 }
 loginBtn.onclick=handleClick;
@@ -73,9 +84,11 @@ const email=forms[0];
 const password=forms[1];
 email.oninput=handleLoginInputs;
 password.oninput=handleLoginInputs;
-const depositBtn=document.getElementById('deposit-btn');
-depositBtn.onclick=handleDepositAmount;
 const depositInput=document.querySelector('#deposit-transaction input');
 const withdrawInput=document.querySelector('#withdraw-transaction input');
 depositInput.oninput=handleTransactionInputs;
 withdrawInput.oninput=handleTransactionInputs;
+const depositBtn=document.getElementById('deposit-btn');
+depositBtn.onclick=handleTransactionsAmount;
+const withdrawBtn=document.getElementById('withdraw-btn');
+withdrawBtn.onclick=handleTransactionsAmount;
