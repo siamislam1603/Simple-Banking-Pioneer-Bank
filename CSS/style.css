@@ -1,0 +1,8 @@
+#login-section div div{
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px gray;
+    padding: 20px;
+}
+#login-section{
+    height: 100vh;
+}
