@@ -40,7 +40,6 @@ function handleTransactionInputs(event){
     const balance=document.querySelector('#balance h4 span');
     const balanceValue=parseFloat(balance.innerHTML);
     const elementValue=+element.value;
-    console.log(elementValue,balanceValue);
     if(element.name=='withdraw'){
         if(elementValue>0 && elementValue<=balanceValue){
             element.setAttribute('class','form-control is-valid');
@@ -56,6 +55,18 @@ function handleTransactionInputs(event){
             element.setAttribute('class','form-control is-invalid');
     }
 }
+function handleDepositAmount(){
+    const element=document.querySelector('#deposit-transaction input');
+    elementValue=+element.value;
+    var balance=document.querySelector('#balance h4 span');
+    const balanceValue=parseFloat(balance.innerHTML);
+    var deposit=document.querySelector('#deposit h4 span');
+    const depositValue=parseFloat(deposit.innerHTML);
+    if(element.className=='form-control is-valid'){
+        deposit.innerHTML=depositValue+elementValue;
+        balance.innerHTML=balanceValue+elementValue;
+    }
+}
 loginBtn.onclick=handleClick;
 const forms=document.getElementsByTagName('input');
 const email=forms[0];
@@ -63,6 +74,7 @@ const password=forms[1];
 email.oninput=handleLoginInputs;
 password.oninput=handleLoginInputs;
 const depositBtn=document.getElementById('deposit-btn');
+depositBtn.onclick=handleDepositAmount;
 const depositInput=document.querySelector('#deposit-transaction input');
 const withdrawInput=document.querySelector('#withdraw-transaction input');
 depositInput.oninput=handleTransactionInputs;
