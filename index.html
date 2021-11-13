@@ -55,44 +55,57 @@
           <div class="col-4">
             <div id="deposit">
               <h6>Deposit</h6>
-              <h4>$ 00</h4>
+              <h4>$ <span>00</span></h4>
             </div>
           </div>
           <div class="col-4">
             <div id="withdraw">
               <h6>Withdraw</h6>
-              <h4>$ 00</h4>
+              <h4>$ <span>00</span></h4>
             </div>
           </div>
           <div class="col-4">
             <div id="balance">
               <h6>Balance</h6>
-              <h4>$ 1240</h4>
+              <h4>$ <span>1240</span></h4>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <div class="transaction-section mb-4">
+            <div class="transaction-section mb-4" id="deposit-transaction">
               <h5>Deposit</h5>
               <input
                 type="text"
+                name="deposit"
                 class="form-control"
                 placeholder="$ amount you want to deposit"
-              /><button class="btn btn-success mt-4 rounded-pill">
+                aria-describedby="validationDepositFeedback"
+                required
+              />
+              <div id="validationDepositFeedback" class="invalid-feedback">
+                Deposit amount is invalid (i.e. amount should be greater than 0).
+              </div>
+              <button class="btn btn-success mt-4 rounded-pill" id="deposit-btn">
                 Deposit
               </button>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="transaction-section mb-4">
+            <div class="transaction-section mb-4" id="withdraw-transaction">
               <h5>Withdraw</h5>
               <input
                 type="text"
+                name="withdraw"
                 class="form-control"
                 placeholder="$ amount you want to withdraw"
+                aria-describedby="validationWithdrawFeedback"
+                required
               />
-              <button class="btn btn-success mt-4 rounded-pill">
+              <div id="validationWithdrawFeedback" class="invalid-feedback">
+                Please enter a valid amount which is less than your current balance (i.e. amount>0).
+              </div>
+              <button class="btn btn-success mt-4 rounded-pill" id="withdraw-btn">
                 Withdraw
               </button>
             </div>

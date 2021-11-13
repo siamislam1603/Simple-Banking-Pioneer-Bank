@@ -13,7 +13,7 @@ function handleClick(){
         accountSection.style.display='block';
     }
 }
-function handleInputs(event){
+function handleLoginInputs(event){
     var element=event.target;
     if(element.type=='email'){
         var isValid=validateEmail(element.value);
@@ -35,9 +35,35 @@ function handleInputs(event){
         document.querySelector(targetId+' .invalid-feedback').style.display='none';
     }
 }
+function handleTransactionInputs(event){
+    const element=event.target;
+    const balance=document.querySelector('#balance h4 span');
+    const balanceValue=parseFloat(balance.innerHTML);
+    const elementValue=+element.value;
+    console.log(elementValue,balanceValue);
+    if(element.name=='withdraw'){
+        if(elementValue>0 && elementValue<=balanceValue){
+            element.setAttribute('class','form-control is-valid');
+        }
+        else{
+            element.setAttribute('class','form-control is-invalid');
+        }
+    }
+    else{
+        if(elementValue>0)
+            element.setAttribute('class','form-control is-valid');
+        else
+            element.setAttribute('class','form-control is-invalid');
+    }
+}
 loginBtn.onclick=handleClick;
 const forms=document.getElementsByTagName('input');
 const email=forms[0];
 const password=forms[1];
-email.oninput=handleInputs;
-password.oninput=handleInputs;
+email.oninput=handleLoginInputs;
+password.oninput=handleLoginInputs;
+const depositBtn=document.getElementById('deposit-btn');
+const depositInput=document.querySelector('#deposit-transaction input');
+const withdrawInput=document.querySelector('#withdraw-transaction input');
+depositInput.oninput=handleTransactionInputs;
+withdrawInput.oninput=handleTransactionInputs;
